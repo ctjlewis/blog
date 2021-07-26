@@ -1,6 +1,6 @@
-import Avatar from './Avatar'
-import CoverImage from './CoverImage'
-import Title from './Title';
+import Avatar from '../Avatar'
+import CoverImage from '../CoverImage'
+import Title from '../Title';
 
 export default function PostHeader({ title, coverImage, date, author, slug }) {
   const postInfo = (

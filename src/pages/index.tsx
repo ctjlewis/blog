@@ -1,6 +1,6 @@
 import Container from '../components/Container'
-import MoreStories from '../components/MoreStories'
-import HeroPost from '../components/RecentStories'
+import MoreStories from '../components/Stories/More'
+import HeroStory from '../components/Stories/Hero'
 import Intro from '../components/Intro'
 import Layout from '../components/Layout'
 import { getAllPostsForHome } from '../lib/api'
@@ -19,7 +19,7 @@ export default function Index({ allPosts, preview }) {
         <Container>
           <Intro />
           {heroPost && (
-            <HeroPost
+            <HeroStory
               title={heroPost.title}
               coverImage={heroPost.coverImage}
               date={heroPost.date}

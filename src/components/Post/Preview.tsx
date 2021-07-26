@@ -1,7 +1,8 @@
-import Avatar from './Avatar'
-import CoverImage from './CoverImage'
-import { imageBuilder } from '../lib/sanity'
-import Title from './Title'
+import Avatar from '../Avatar'
+import CoverImage from '../CoverImage'
+import { imageBuilder } from '../../lib/sanity'
+import Title from '../Title'
+
 export default function PostPreview({
   title,
   coverImage,

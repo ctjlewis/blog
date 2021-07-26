@@ -24,11 +24,15 @@ const components = {
       </code>
     )
   },
+  // math: ({ node, ...props }) => {
+  //   console.log({ props });
+  //   return null;
+  // }
 }
 
 const Markdown: FC = ({ children }: { children: string }) => {
   const markdownProps = {
-    escape: false,
+    escape: true,
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
     components,

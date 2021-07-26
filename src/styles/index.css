@@ -84,8 +84,7 @@
   ul,
   ol,
   pre,
-  blockquote,
-  .math-display {
+  blockquote {
     @apply mb-8;
   }
 }

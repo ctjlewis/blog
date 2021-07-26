@@ -1,5 +1,5 @@
-import PostPreview from './PostPreview'
-import Section from './Section'
+import PostPreview from '../Post/Preview'
+import Section from '../Section'
 
 export default function MoreStories({ posts }) {
   return (

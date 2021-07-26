@@ -1,9 +1,9 @@
-import Avatar from './Avatar'
-import CoverImage from './CoverImage'
-import Title from './Title'
-import Section from './Section'
+import Avatar from '../Avatar'
+import CoverImage from '../CoverImage'
+import Title from '../Title'
+import Section from '../Section'
 
-export default function HeroPost({
+export default function HeroStory({
   title,
   coverImage,
   date,
