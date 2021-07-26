@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import tomorrow from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow"
 
 import MathJax from 'react-mathjax';
 import remarkMath from 'remark-math';
@@ -13,7 +12,6 @@ const components = {
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
       <SyntaxHighlighter
-        style={tomorrow}
         language={match[1]}
         PreTag="div"
         {...props}
