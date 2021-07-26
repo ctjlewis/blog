@@ -6,8 +6,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <GoogleFont family="EB Garamond" />
           <GoogleFont family="Averia Serif Libre" />
+          <GoogleFont family="EB Garamond" />
+          <GoogleFont family="Public Sans" />
         </Head>
         <body>
           <Main />

@@ -11,10 +11,14 @@
     font-family: EB Garamond, serif;
   }
 
-  /* Display font. */
+  /* Fonts. */
 
   .display {
     font-family: Averia Serif Libre, serif;
+  }
+
+  .interface {
+    font-family: Public Sans, sans-serif;
   }
 
   .title {
@@ -29,34 +33,49 @@
   }
 
   h1 {
-    @apply text-6xl md:text-8xl;
+    @apply text-6xl lg:text-8xl;
   }
 
   h2 {
-    @apply text-4xl md:text-6xl;
+    @apply text-4xl lg:text-6xl;
   }
 
   h3 {
-    @apply text-2xl md:text-4xl;
+    @apply text-2xl lg:text-4xl;
   }
 
   h4 {
-    @apply text-base md:text-2xl;
+    @apply text-base lg:text-2xl;
   }
 
   h5 {
-    @apply text-sm md:text-base;
+    @apply text-sm lg:text-base;
   }
 
   h6 {
-    @apply text-xs md:text-sm;
+    @apply text-xs lg:text-sm;
   }
+
+  /* Transition logic. */
+  a {
+    /* color: rgb(49, 49, 182); */
+    transition: 300ms;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+  }
+
+  a:hover {
+    text-decoration-color: inherit;
+  }
+
+  /* .underline:hover {
+    text-decoration-color: rgb(49, 49, 182);
+  } */
 
   /* Link styling. */
 
   article a {
-    color: rgb(49, 49, 182);
-    text-decoration: underline;
+    @apply underline;
   }
 
   /* Standard spacing. */

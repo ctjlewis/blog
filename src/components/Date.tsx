@@ -7,7 +7,7 @@ export default function Date({ dateString }) {
   const date = parseISO(dateString)
   return (
     <time
-      className="my-2 text-sm"
+      className="interface my-2 text-sm"
       dateTime={dateString}
     >
       {format(date, 'LLLL	d, yyyy')}

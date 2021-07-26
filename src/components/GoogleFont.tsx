@@ -10,7 +10,7 @@ type FontParams =  {
  */
 export class GoogleFont extends Component<FontParams> {
   render() {
-    const { family = '', weights = [] } = this.props;
+    const { family, weights = [ 400, 800 ] } = this.props;
     const href = 
       `https://fonts.googleapis.com/css2?family=${
         family.replace(/ /g, '+')
