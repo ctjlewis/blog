@@ -1,4 +1,4 @@
-export default {
+const Comment = {
     name: 'comment',
     type: 'document',
     title: 'Comment',
@@ -44,3 +44,4 @@ export default {
     }
   }
   
+  export default Comment;

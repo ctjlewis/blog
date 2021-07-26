@@ -1,9 +1,9 @@
-import Date from './date'
+import Date from './Date'
 
 export default function Comments({ comments = [] }) {
   return (
     <>
-      <h2 className="mt-10 mb-4 text-4xl lg:text-6xl leading-tight">Comments:</h2>
+      <h3 className="display">Comments</h3>
       <ul>
         {comments?.map(({ _id, _createdAt, name, email, comment }) => (
           <li key={_id} className="mb-5">

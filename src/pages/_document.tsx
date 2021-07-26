@@ -1,10 +1,14 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { GoogleFont } from '../components/GoogleFont'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <GoogleFont family="EB Garamond" />
+          <GoogleFont family="Averia Serif Libre" />
+        </Head>
         <body>
           <Main />
           <NextScript />

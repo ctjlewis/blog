@@ -1,4 +1,4 @@
-export default {
+const Post = {
   name: 'post',
   title: 'Post',
   type: 'document',
@@ -45,7 +45,7 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'markdown'
     }
   ],
 
@@ -63,3 +63,5 @@ export default {
     }
   }
 }
+
+export default Post;

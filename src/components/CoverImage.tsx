@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import { imageBuilder } from '../lib/sanity'
+import Title from './Title'
 
 export default function CoverImage({ title, url, imageObject, slug }) {
   const image = (
@@ -16,14 +17,12 @@ export default function CoverImage({ title, url, imageObject, slug }) {
   )
 
   return (
-    <div className="-mx-5 sm:mx-0">
-      {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{image}</a>
-        </Link>
-      ) : (
-        image
-      )}
-    </div>
+    slug ? (
+      <h3>
+        <Title slug={slug}>{image}</Title>
+      </h3>
+    ) : (
+      image
+    )
   )
 }
