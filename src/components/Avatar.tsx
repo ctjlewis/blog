@@ -1,9 +1,12 @@
 import Date from './Date'
+import Image from 'next/image'
 
 export default function Avatar({ name, picture, date }) {
   return (
     <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
+      <div className="w-12 h-12 rounded-full mr-4">
+        <Image src={picture} height="100%" width="100%" alt={name} />
+      </div>
       <div>
         <h3 className="interface font-bold text-sm p-0">{name}</h3>
         <Date dateString={date} />
