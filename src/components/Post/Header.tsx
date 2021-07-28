@@ -12,9 +12,7 @@ export default function PostHeader({ title, coverImage, date, author, slug }) {
   );
   return (
     <>
-      <h1>
-        <Title>{title}</Title>
-      </h1>
+      <Title>{`# ${title}`}</Title>
       {postInfo}
       {coverImage && (
         <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">

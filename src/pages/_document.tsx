@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
         <Head>
           <GoogleFont family="Averia Serif Libre" />
           <GoogleFont family="EB Garamond" />
-          <GoogleFont family="Public Sans" />
+          <GoogleFont family="Atkinson Hyperlegible" />
         </Head>
         <body>
           <Main />

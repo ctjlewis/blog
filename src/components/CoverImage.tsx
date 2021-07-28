@@ -19,9 +19,7 @@ export default function CoverImage({ title, url, imageObject, slug }) {
 
   return (
     slug ? (
-      <h3>
-        <Title slug={slug}>{image}</Title>
-      </h3>
+      <Title slug={slug}>{image}</Title>
     ) : (
       image
     )

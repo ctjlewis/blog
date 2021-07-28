@@ -12,11 +12,9 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div className="mx-4">
+    <div className="mx-4 flex flex-col justify-start">
       {coverImage && <CoverImage slug={slug} title={title} imageObject={coverImage} url={imageBuilder(coverImage).url()} />}
-      <h3>
-        <Title slug={slug}>{title}</Title>
-      </h3>
+      <Title slug={slug}>{`### ${title}`}</Title>
       {excerpt && <p>{excerpt}</p>}
       <Avatar name={author?.name} picture={author?.picture} date={date} />
     </div>

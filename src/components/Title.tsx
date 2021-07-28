@@ -11,7 +11,7 @@ export default function Title({ slug = '', children }) {
     slug
       ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">
+          <a>
             {content}
           </a>
         </Link>

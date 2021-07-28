@@ -21,7 +21,7 @@ const Post = {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'}
+      to: { type: 'author' }
     },
     {
       name: 'mainImage',
@@ -35,7 +35,7 @@ const Post = {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
       name: 'publishedAt',
@@ -56,7 +56,7 @@ const Post = {
       media: 'mainImage'
     },
     prepare(selection) {
-      const {author} = selection
+      const { author } = selection
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`
       })
