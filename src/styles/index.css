@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
 @layer base {
   /* Fonts. */
 
@@ -99,11 +101,22 @@
   ol,
   pre,
   blockquote,
-  article .math-display {
+  article .katex-display {
     @apply content-block;
   }
 
   p .math-inline {
     @apply text-base mx-2;
+  }
+
+  /* Fancy first letter. */
+
+  article .post-body p:first-child::first-letter {
+    @apply text-4xl;
+  }
+
+  /* Tweet centering. */
+  .twitter-tweet {
+    @apply mx-auto;
   }
 }

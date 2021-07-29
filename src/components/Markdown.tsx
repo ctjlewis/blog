@@ -1,10 +1,14 @@
 import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import Link from 'next/link';
 
 import MathJax from 'react-mathjax';
 import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex'
+import rehypeKatex from 'rehype-katex';
+import gfm from 'remark-gfm'
+
+import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import 'katex/dist/katex.min.css'
 
 const components = {
@@ -16,7 +20,7 @@ const components = {
         PreTag="div"
         {...props}
       >
-        {String(children).replace(/\n$/, '')}
+        {children.toString().replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
       <code className={className} {...props}>
@@ -24,16 +28,25 @@ const components = {
       </code>
     )
   },
-  // math: ({ node, ...props }) => {
-  //   console.log({ props });
-  //   return null;
-  // }
+  a: ({ children, href = '' }) => {
+    const isTweet = /twitter\.com\/.+\/status/.test(href);
+    if (isTweet) {
+      const tweetId = href.replace(/.+\/status\//, '');
+      return (
+        <TwitterTweetEmbed tweetId={tweetId} />
+      );
+    }
+    return (
+      <Link href={href}><a>{children}</a></Link>
+    );
+  },
 }
 
 const Markdown: FC = ({ children }: { children: string }) => {
   const markdownProps = {
     escape: true,
-    remarkPlugins: [remarkMath],
+    linkTarget: '_blank',
+    remarkPlugins: [gfm, remarkMath],
     rehypePlugins: [rehypeKatex],
     components,
   };
