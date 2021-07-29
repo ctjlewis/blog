@@ -28,7 +28,7 @@ const components = {
       </code>
     )
   },
-  a: ({ children, href = '' }) => {
+  a({ children, href = '' }) {
     const isTweet = /twitter\.com\/.+\/status/.test(href);
     if (isTweet) {
       const tweetId = href.replace(/.+\/status\//, '');
