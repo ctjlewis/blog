@@ -27,7 +27,7 @@ export default function Post({ post, morePosts, preview }) {
           <Title>Loading…</Title>
         ) : (
           <>
-            <article className="mx-auto max-w-screen-md">
+            <article>
               <Head>
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}

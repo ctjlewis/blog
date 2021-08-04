@@ -12,15 +12,15 @@
   }
 
   .interface {
-    font-family: Atkinson Hyperlegible, sans-serif;
+    font-family: Fira Sans, sans-serif;
   }
 
-  .article {
+  .serif {
     font-family: EB Garamond, serif;
   }
 
   .title {
-    @apply py-2 display font-bold;
+    @apply mt-2 display font-bold;
   }
 
   .title p {
@@ -31,63 +31,98 @@
   
   html,
   body {
-    @apply interface text-lg;
+    @apply interface text-lg xl:text-2xl;
   }
-  
-  /* Article font. */
+
+  /* Article font and margin. */
   
   article {
-    @apply article;
+    @apply mx-auto max-w-screen-md lg:max-w-full serif;
   }
 
   /* Heading sizes. */
 
   h1, h2, h3, h4, h5, h6 {
     @apply display;
-    @apply pb-4 leading-snug;
+    @apply pb-2 leading-snug;
   }
 
-  h1 {
+  .font-size-1 {
     @apply text-4xl lg:text-8xl;
   }
 
-  h2 {
+  .font-size-2 {
     @apply text-3xl lg:text-6xl;
   }
 
-  h3 {
+  .font-size-3 {
     @apply text-2xl lg:text-4xl;
   }
 
-  h4 {
+  .font-size-base {
     @apply text-base lg:text-2xl;
   }
 
-  h5 {
+  .font-size-sm {
     @apply text-sm lg:text-base;
   }
 
-  h6 {
+  .font-size-base {
     @apply text-xs lg:text-sm;
   }
 
-  /* Transition logic. */
-
-  a {
-    /* color: rgb(49, 49, 182); */
-    transition: 300ms;
-    text-decoration: underline;
-    text-decoration-color: transparent;
+  h1 {
+    @apply font-size-1;
   }
 
-  a:hover {
-    text-decoration-color: inherit;
+  h2 {
+    @apply font-size-2;
+  }
+
+  h3 {
+    @apply font-size-3;
+  }
+
+  h4 {
+    @apply font-size-base;
+  }
+
+  h5 {
+    @apply font-size-sm;
+  }
+
+  h6 {
+    @apply font-size-base;
   }
 
   /* Link styling. */
 
-  article a {
+  .underline {
+    text-decoration: underline;
+  }
+
+  .decoration-color-inherit {
+    text-decoration-color: inherit;
+  }
+
+  /* Underline links. */
+  
+  a {
     @apply underline;
+  }
+
+  /* If the user can hover, transition in by default. */
+
+  @media (hover: hover) {
+    a {
+      transition: 300ms;
+      text-decoration-color: transparent;
+    }
+  }
+
+  /* Always display the underline in articles. */
+  article a {
+    @apply underline decoration-color-inherit;
   }
 
   /* Standard spacing. */
@@ -95,6 +130,8 @@
   .content-block {
     @apply mb-12;
   }
+
+  /* Automatically apply content-block spacing to standard elements. */
 
   p,
   ul,
@@ -105,18 +142,41 @@
     @apply content-block;
   }
 
-  p .math-inline {
-    @apply text-base mx-2;
-  }
-
   /* Fancy first letter. */
 
-  article .post-body p:first-child::first-letter {
-    @apply text-4xl;
+  article .post-body > p:first-child::first-letter {
+    @apply text-8xl font-bold;
   }
 
-  /* Tweet centering. */
+  /* Center Tweets horizontally. */
+
   .twitter-tweet {
     @apply mx-auto;
   }
+
+  /* Code block styling. */
+
+  .code-block {
+    @apply mx-auto text-xs md:text-sm lg:text-base;
+    /* 80 characters wide. */
+    max-width: 80ch;
+  }
+
+  /* Math block styling. */
+
+  .math-inline {
+    @apply mx-2;
+    font-size: inherit;
+  }
+
+  /* Blockquotes */
+
+  blockquote {
+    @apply italic font-size-sm mx-8 p-4;
+    background-color: rgba(0,0,0,0.06);
+  }
+
+  blockquote p {
+    @apply mb-6;
+  } 
 }
