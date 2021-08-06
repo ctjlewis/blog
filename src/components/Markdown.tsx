@@ -10,6 +10,7 @@ import gfm from 'remark-gfm'
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import 'katex/dist/katex.min.css'
+import Spotify from 'react-spotify-embed';
 
 const getTweetId = (url: string) => {
   const isTweet = /twitter\.com\/.+\/status/.test(url);
@@ -47,10 +48,20 @@ const components = {
    * otherwise, they will be replaced with next/link.
    */
   a({ children, href = '' }) {
+    const url = new URL(href);
     const tweetId = getTweetId(href);
     if (tweetId) {
       return (
         <TwitterTweetEmbed tweetId={tweetId} />
+      );
+    }
+    if (url.host.endsWith('spotify.com')) {
+      return (
+        <Spotify
+          wide
+          className="mx-auto max-w-md"
+          link={href}
+        />
       );
     }
     return (
@@ -67,11 +78,22 @@ const components = {
       const { props: { node: { tagName, properties } } } = child;
       if (tagName === 'a' && properties.href) {
         /**
-         * If this IS a link to a Tweet, replace the entire <p> with <a>.
+         * If this is a link to a Tweet, replace the entire <p> with <a>.
          */
         if (getTweetId(properties.href)) {
           return (
             <div className="mx-auto content-block">
+              {child}
+            </div>
+          );
+        }
+        /**
+         * If this is a Spotify link, replace with Spotify.
+         */
+        const url = new URL(properties.href);
+        if (url.origin.endsWith('spotify.com')) {
+          return (
+            <div className="max-auto content-block">
               {child}
             </div>
           );

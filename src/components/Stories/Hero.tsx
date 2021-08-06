@@ -14,7 +14,7 @@ export default function HeroStory({
   return (
     <Section>
       <div className="md:grid md:grid-cols-2">
-        {coverImage && <CoverImage slug={slug} imageObject={coverImage} title={title} url={coverImage} />}
+        {coverImage && <div className="my-auto"><CoverImage slug={slug} imageObject={coverImage} title={title} url={coverImage} /></div>}
         <div className="mx-8 flex flex-col justify-center items-center md:items-start">
           <Title slug={slug}>{`## ${title}`}</Title>
           <div className="flex justify-center">

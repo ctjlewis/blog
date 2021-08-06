@@ -19,7 +19,13 @@ export default function CoverImage({ title, url, imageObject, slug }) {
 
   return (
     slug ? (
-      <Title slug={slug}>{image}</Title>
+      <div className="mx-auto">
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <a>
+            {image}
+          </a>
+        </Link>
+      </div>
     ) : (
       image
     )

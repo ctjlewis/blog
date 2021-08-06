@@ -28,21 +28,26 @@
   }
 
   /* Base font. */
-  
+
   html,
   body {
     @apply interface text-lg xl:text-2xl;
   }
 
   /* Article font and margin. */
-  
+
   article {
     @apply mx-auto max-w-screen-md lg:max-w-full serif;
   }
 
   /* Heading sizes. */
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply display;
     @apply pb-2 leading-snug;
   }
@@ -106,7 +111,7 @@
   }
 
   /* Underline links. */
-  
+
   a {
     @apply underline;
   }
@@ -116,8 +121,39 @@
   @media (hover: hover) {
     a {
       transition: 300ms;
+      text-decoration: underline;
       text-decoration-color: transparent;
     }
+
+    a:hover {
+      text-decoration-color: inherit;
+    }
+  }
+
+  /**
+   * Everything inside of <a> elements should inherit underline state. Pass to
+   * LaTeX.
+   */
+  a > *,
+  a span.math,
+  a span.math span.katex,
+  a span.math span.katex span.katex-html,
+  a span.math span.katex span.katex-html span.base,
+  a span.math span.katex span.mspace {
+    text-decoration: inherit;
+    text-decoration-color: inherit;
+  }
+
+  /**
+   * LaTeX overrides to get underlines to display correctly.
+   */
+  a span.math span.katex span.mord.mathnormal,
+  a span.math span.katex span.mspace {
+    margin: 0 !important;
+  }
+
+  a span.math span.katex span.mspace::after {
+    content: "\00a0";
   }
 
   /* Always display the underline in articles. */
@@ -172,11 +208,15 @@
   /* Blockquotes */
 
   blockquote {
-    @apply italic font-size-sm mx-8 p-4;
-    background-color: rgba(0,0,0,0.06);
+    @apply italic font-size-sm max-w-md mx-auto p-4;
+    background-color: rgba(0, 0, 0, 0.06);
   }
 
   blockquote p {
     @apply mb-6;
-  } 
+  }
+
+  blockquote p:last-child {
+    @apply mb-0;
+  }
 }
