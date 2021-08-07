@@ -9,14 +9,17 @@
 
   .display {
     font-family: Averia Serif Libre, serif;
+    font-weight: 700;
   }
 
   .interface {
-    font-family: Fira Sans, sans-serif;
+    font-family: Averia Sans Libre, sans-serif;
+    font-weight: 300;
   }
 
   .serif {
     font-family: EB Garamond, serif;
+    font-weight: 400;
   }
 
   .title {
@@ -42,13 +45,13 @@
 
   /* Heading sizes. */
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply display;
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    @apply font-bold display;
     @apply pb-2 leading-snug;
   }
 
@@ -76,27 +79,27 @@
     @apply text-xs lg:text-sm;
   }
 
-  h1 {
+  h1, .h1 {
     @apply font-size-1;
   }
 
-  h2 {
+  h2, .h2 {
     @apply font-size-2;
   }
 
-  h3 {
+  h3, .h3 {
     @apply font-size-3;
   }
 
-  h4 {
+  h4, .h4 {
     @apply font-size-base;
   }
 
-  h5 {
+  h5, .h5 {
     @apply font-size-sm;
   }
 
-  h6 {
+  h6, .h6 {
     @apply font-size-base;
   }
 
@@ -130,6 +133,82 @@
     }
   }
 
+  /* Always display the underline in articles. */
+
+  article a {
+    @apply underline decoration-color-inherit;
+  }
+
+  article h1,
+  article h2,
+  article h3,
+  article h4 {
+    @apply mb-6;
+  }
+
+  /* Standard spacing. */
+
+  .content-block {
+    @apply mb-12;
+  }
+
+  /* Automatically apply content-block spacing to standard elements. */
+
+  p,
+  ul,
+  ol,
+  pre,
+  blockquote,
+  article .katex-display {
+    @apply content-block;
+  }
+
+  /* Fancy first letter. */
+
+  article .post-body > p:first-child::first-letter {
+    @apply text-8xl font-bold;
+  }
+
+  /* Code block styling. */
+
+  .code-block {
+    @apply mx-auto text-xs md:text-sm lg:text-base;
+    /* 80 characters wide. */
+    max-width: 80ch;
+  }
+
+  /* Math block styling. */
+
+  .math-inline {
+    @apply mx-2;
+    font-size: inherit;
+  }
+
+  blockquote, img, pre {
+    border-radius: 8px;
+  }
+
+  /* Blockquotes */
+
+  blockquote {
+    @apply italic font-size-sm max-w-md mx-auto p-4;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  blockquote p {
+    @apply mb-6;
+  }
+
+  blockquote p:last-child {
+    @apply mb-0;
+  }
+
+  /**
+   * Below rules will not be purged, i.e. they will be applied to content which
+   * is generated after render.
+   */
+  /* purgecss start ignore */
+
   /**
    * Everything inside of <a> elements should inherit underline state. Pass to
    * LaTeX.
@@ -156,67 +235,11 @@
     content: "\00a0";
   }
 
-  /* Always display the underline in articles. */
-  article a {
-    @apply underline decoration-color-inherit;
-  }
-
-  /* Standard spacing. */
-
-  .content-block {
-    @apply mb-12;
-  }
-
-  /* Automatically apply content-block spacing to standard elements. */
-
-  p,
-  ul,
-  ol,
-  pre,
-  blockquote,
-  article .katex-display {
-    @apply content-block;
-  }
-
-  /* Fancy first letter. */
-
-  article .post-body > p:first-child::first-letter {
-    @apply text-8xl font-bold;
-  }
-
   /* Center Tweets horizontally. */
 
   .twitter-tweet {
     @apply mx-auto;
   }
 
-  /* Code block styling. */
-
-  .code-block {
-    @apply mx-auto text-xs md:text-sm lg:text-base;
-    /* 80 characters wide. */
-    max-width: 80ch;
-  }
-
-  /* Math block styling. */
-
-  .math-inline {
-    @apply mx-2;
-    font-size: inherit;
-  }
-
-  /* Blockquotes */
-
-  blockquote {
-    @apply italic font-size-sm max-w-md mx-auto p-4;
-    background-color: rgba(0, 0, 0, 0.06);
-  }
-
-  blockquote p {
-    @apply mb-6;
-  }
-
-  blockquote p:last-child {
-    @apply mb-0;
-  }
+  /* purgecss end ignore */
 }

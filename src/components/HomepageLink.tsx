@@ -10,7 +10,7 @@ export default function HomepageLink() {
       </Link>
       <Link href="mailto:hi@ctjlewis.com">
         <a>
-          <h6>hi@ctjlewis.com</h6>
+          <span className="h6">hi@ctjlewis.com</span>
         </a>
       </Link>
     </div>

@@ -2,15 +2,15 @@ import { cloneElement, FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link';
 
-import MathJax from 'react-mathjax';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import gfm from 'remark-gfm'
 
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import 'katex/dist/katex.min.css'
 import Spotify from 'react-spotify-embed';
+
+import 'katex/dist/katex.min.css'
 
 const getTweetId = (url: string) => {
   const isTweet = /twitter\.com\/.+\/status/.test(url);
@@ -150,11 +150,9 @@ const Markdown: FC = ({ children }: { children: string }) => {
   };
 
   return (
-    <MathJax.Provider input="tex">
-      <ReactMarkdown {...markdownProps}>
-        {children}
-      </ReactMarkdown>
-    </MathJax.Provider>
+    <ReactMarkdown {...markdownProps}>
+      {children}
+    </ReactMarkdown>
   );
 }
 

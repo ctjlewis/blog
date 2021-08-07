@@ -32,6 +32,14 @@ const Post = {
       }
     },
     {
+      name: 'ogImage',
+      title: 'OpenGraph Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',

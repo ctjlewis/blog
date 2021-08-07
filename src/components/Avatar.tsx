@@ -10,7 +10,9 @@ export default function Avatar({ name, picture, date }) {
         </div>
       )}
       <div>
-        <h3 className="interface font-bold text-sm p-0">{name}</h3>
+        {name && (
+          <span className="h3 interface font-bold text-sm p-0">{name}</span>
+        )}
         <Date dateString={date} />
       </div>
     </div>

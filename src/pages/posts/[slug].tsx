@@ -10,15 +10,17 @@ import SectionSeparator from '../../components/SectionSeparator'
 import Layout from '../../components/Layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
 import Title from '../../components/Title'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
   const slug = post?.slug;
+  const { title, body, author, date, coverImage, ogImage } = post ?? {};
+
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -30,18 +32,19 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {title} | C. Lewis
                 </title>
-                {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                {title && <meta property="og:title" content={title} />}
+                {ogImage && <meta property="og:image" content={ogImage.url} />}
               </Head>
               <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
+                title={title}
+                coverImage={coverImage}
+                date={date}
+                author={author}
                 slug={slug}
               />
-              <PostBody content={post.body} />
+              <PostBody content={body} />
             </article>
 
             {/* @todo Re-add comments */}
